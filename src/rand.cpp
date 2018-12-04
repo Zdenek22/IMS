@@ -1,3 +1,5 @@
+#include "rand.h"
+
 #define UINT_MAX   4294967295U
 float getRand() {
 	static unsigned ix = 598741262; 
