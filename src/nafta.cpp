@@ -4,6 +4,8 @@
 *
 */
 
+#include "nafta.hpp"
+
 // spotreba nafty pri seti
 void nafta::naftaSeti(float* naklady, float pole){
 	// spotreba l/ha
@@ -68,4 +70,8 @@ void nafta::naftaOrba(float* naklady, float pole){
 	float spotreba = 18.0;
 
 	*naklady = *naklady + (spotreba * pole * getCenaNafty());
+}
+
+float nafta::getCenaNafty(){
+	return 32.90;
 }

@@ -1,15 +1,10 @@
 class nafta
 {
 
-private:
-	float cenaNafty = 30.90;
-
-
 public:
-	nafta();
-	~nafta();
 
-	float getCenaNafty(return cenaNafty;);
+
+	float getCenaNafty();
 
 	// spotreba nafty pri seti
 	void naftaSeti(float* naklady, float pole);
