@@ -1,9 +1,13 @@
 #include <iostream>
+#include <stdlib.h> 
+#include <time.h>
+
 
 #include "pripravaPudy.hpp"
 
 int main(int argc, char** argv){
-
+	
+	srand(time(NULL));
 	float naklady = 0.0;
 	float tmp;
 	float pole = std::stof(argv[1]);
