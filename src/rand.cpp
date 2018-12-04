@@ -1,3 +1,4 @@
+#include <stdlib.h> 
 #include "rand.h"
 
 #define UINT_MAX   4294967295U
