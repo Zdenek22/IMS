@@ -4,6 +4,7 @@
 
 
 #include "pripravaPudy.hpp"
+#include "jaro.hpp"
 
 int main(int argc, char** argv){
 	
@@ -53,6 +54,63 @@ int main(int argc, char** argv){
 
 
 	// PODZMIMNI OSETROVANI
+
+
+
+
+
+	// JARNI OSETROVANI
+	jaro jarniOsetreni;
+
+	tmp = naklady;
+	jarniOsetreni.regenHnojeni(&naklady, pole);
+	std::cout << "##\tRegeneracni hnojeni"<<std::endl;
+	std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;	
+
+	tmp = naklady;
+	jarniOsetreni.produkHnojeni(&naklady, pole);
+	std::cout << "##\tProdukcni hnojeni"<<std::endl;
+	std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;
+
+	tmp = naklady;
+	jarniOsetreni.krytonosecRepkovy(&naklady, pole);
+	std::cout << "##\tOchrana proti krytonosci repkovemu"<<std::endl;
+	std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;	
+
+	tmp = naklady;
+	jarniOsetreni.regulatorRustu(&naklady, pole);
+	std::cout << "##\tAplikace regulatoru rustu"<<std::endl;
+	std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;	
+
+	tmp = naklady;
+	jarniOsetreni.blyskacek(&naklady, pole);
+	std::cout << "##\tOchrana proti blyskackovi"<<std::endl;
+	std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;
+
+	tmp = naklady;
+	jarniOsetreni.listovaHnojiva(&naklady, pole);
+	std::cout << "##\tAplikace listovych hnojiv"<<std::endl;
+	std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;	
+
+	tmp = naklady;
+	jarniOsetreni.doladovaciDusik(&naklady, pole);
+	std::cout << "##\tDoladovaci davka dusiku"<<std::endl;
+	std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;	
+
+	tmp = naklady;
+	jarniOsetreni.bejlomorka(&naklady, pole);
+	std::cout << "##\tOchrana proti bejlomorce"<<std::endl;
+	std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;	
+
+	tmp = naklady;
+	jarniOsetreni.krytonosecSesulovy(&naklady, pole);
+	std::cout << "##\tOchrana proti krytonosci sesulovemu"<<std::endl;
+	std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;	
+
+	tmp = naklady;
+	jarniOsetreni.msice(&naklady, pole);
+	std::cout << "##\tOchrana proti msicim"<<std::endl;
+	std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;	
 
 	return 0;
 }
