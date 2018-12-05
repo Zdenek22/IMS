@@ -5,6 +5,7 @@
 
 #include "pripravaPudy.hpp"
 #include "jaro.hpp"
+#include "podzim.h"
 
 int main(int argc, char** argv){
 	
@@ -50,14 +51,43 @@ int main(int argc, char** argv){
 	std::cout << "##\tVysazeni semen repky"<<std::endl;
 	std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;	
 
-	std::cout<<"##############################################"<<std::endl;
+	std::cout<<"##############################################\n##"<<std::endl;
 
 
 	// PODZMIMNI OSETROVANI
+	tmp = naklady;
+	aplikaceHerbicidu(&naklady, pole);
+	std::cout << "##\tAplikace herbicidu"<<std::endl;
+	std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;	
+
+	tmp = naklady;
+	krytonosecSesulovy(&naklady, pole);
+	std::cout << "##\tPostrik proti krytonosci sesulovemu"<<std::endl;
+	std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;	
+
+	tmp = naklady;
+	drepcik(&naklady, pole);
+	std::cout << "##\tPostrik proti drepcikovi"<<std::endl;
+	std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;	
+
+	tmp = naklady;
+	hrabosi(&naklady, pole);
+	std::cout << "##\tPostrik proti hrabosum"<<std::endl;
+	std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;	
+
+	tmp = naklady;
+	regRustu(&naklady, pole);
+	std::cout << "##\tAplikace regulatoru vzrustu"<<std::endl;
+	std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;	
+
+	tmp = naklady;
+	pilatka(&naklady, pole);
+	std::cout << "##\tPostrik proti pilatkam"<<std::endl;
+	std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;	
 
 
 
-
+	std::cout<<"##############################################\n##"<<std::endl;
 
 	// JARNI OSETROVANI
 	jaro jarniOsetreni;
