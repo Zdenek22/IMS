@@ -9,12 +9,12 @@
 #include "jaro.hpp"
 
 // regeneracni hnojeni po zime, 90-100kg LAV hnojiva
-void jaro::regenHnojeni(float* naklady, float pole){
+void jaro::regenHnojeni(float* naklady, float pole, float* naftaCelkem){
 	nafta traktor;
 
 	float davka = getRandInRange(90.0, 100.0);
 
-	traktor.naftaHnojeni(naklady, pole, davka);
+	traktor.naftaHnojeni(naklady, pole, davka, naftaCelkem);
 
 	float cena = getRandInRange(6.75, 7.35);
 
@@ -22,12 +22,12 @@ void jaro::regenHnojeni(float* naklady, float pole){
 }
 
 // produkcni hnojeni, 60kg DAM 390 hnojiva
-void jaro::produkHnojeni(float* naklady, float pole){
+void jaro::produkHnojeni(float* naklady, float pole, float* naftaCelkem){
 	nafta traktor;
 
 	float davka = getRandInRange(60.0, 70.0);
 
-	traktor.naftaHnojeni(naklady, pole, davka);
+	traktor.naftaHnojeni(naklady, pole, davka, naftaCelkem);
 
 	float cena = getRandInRange(7.986, 8.41);
 
@@ -35,7 +35,7 @@ void jaro::produkHnojeni(float* naklady, float pole){
 }
 
 // ochrana proti krytonosci repkovemu, pokud se vyskytl
-void jaro::krytonosecRepkovy(float* naklady, float pole){
+void jaro::krytonosecRepkovy(float* naklady, float pole, float* naftaCelkem){
 	
 	float vyskyt = getRandInRange(0.0, 1.0);
 
@@ -44,7 +44,7 @@ void jaro::krytonosecRepkovy(float* naklady, float pole){
 
 	nafta traktor;
 
-	traktor.naftaPostrik(naklady, pole);
+	traktor.naftaPostrik(naklady, pole, naftaCelkem);
 
 	//float cena = getRandInRange(38, 47);
 
@@ -52,10 +52,10 @@ void jaro::krytonosecRepkovy(float* naklady, float pole){
 }
 
 // regulator rustu, Caramba 1l/ha
-void jaro::regulatorRustu(float* naklady, float pole){
+void jaro::regulatorRustu(float* naklady, float pole, float* naftaCelkem){
 	nafta traktor;
 
-	traktor.naftaPostrik(naklady, pole);
+	traktor.naftaPostrik(naklady, pole, naftaCelkem);
 
 	//float cena = getRandInRange(38, 47);
 
@@ -63,7 +63,7 @@ void jaro::regulatorRustu(float* naklady, float pole){
 }
 
 // ochrana proti blyskackovi, pokud se vyskytl
-void jaro::blyskacek(float* naklady, float pole){
+void jaro::blyskacek(float* naklady, float pole, float* naftaCelkem){
 
 	float vyskyt = getRandInRange(0.0, 1.0);
 
@@ -72,18 +72,18 @@ void jaro::blyskacek(float* naklady, float pole){
 
 	nafta traktor;
 
-	traktor.naftaPostrik(naklady, pole);
+	traktor.naftaPostrik(naklady, pole, naftaCelkem);
 
 	//float cena = getRandInRange(38, 47);
 
-	*naklady = *naklady + (pole * 1057.4 * 0.15);
+	*naklady = *naklady + (pole * 1472.0 * 0.15);
 }
 
 // aplikace listovych hnojiv, campofort special B hnojivo 10l/ha
-void jaro::listovaHnojiva(float* naklady, float pole){
+void jaro::listovaHnojiva(float* naklady, float pole, float* naftaCelkem){
 	nafta traktor;
 
-	traktor.naftaPostrik(naklady, pole);
+	traktor.naftaPostrik(naklady, pole, naftaCelkem);
 
 	float cena = getRandInRange(38, 47);
 
@@ -91,12 +91,12 @@ void jaro::listovaHnojiva(float* naklady, float pole){
 }
 
 // doladovaci davka dusiku, LAV 30kg/ha
-void jaro::doladovaciDusik(float* naklady, float pole){
+void jaro::doladovaciDusik(float* naklady, float pole, float* naftaCelkem){
 	nafta traktor;
 
 	float davka = getRandInRange(30.0, 40.0);
 
-	traktor.naftaHnojeni(naklady, pole, davka);
+	traktor.naftaHnojeni(naklady, pole, davka, naftaCelkem);
 
 	float cena = getRandInRange(6.75, 7.35);
 
@@ -104,7 +104,7 @@ void jaro::doladovaciDusik(float* naklady, float pole){
 }
 
 // ochrana proti bejlomorce, pokud se silne vyskytla
-void jaro::bejlomorka(float* naklady, float pole){
+void jaro::bejlomorka(float* naklady, float pole, float* naftaCelkem){
 	float vyskyt = getRandInRange(0.0, 1.0);
 
 	if((vyskyt * 100) > 11.83)
@@ -112,15 +112,15 @@ void jaro::bejlomorka(float* naklady, float pole){
 
 	nafta traktor;
 
-	traktor.naftaPostrik(naklady, pole);
+	traktor.naftaPostrik(naklady, pole, naftaCelkem);
 
 	//float cena = getRandInRange(38, 47);
 
-	*naklady = *naklady + (pole * 11690.0 * 0.1);
+	*naklady = *naklady + (pole * 6600.0 * 0.1);
 }
 
 // ochrana proti krytonosci sesulovemu
-void jaro::krytonosecSesulovy(float* naklady, float pole){
+void jaro::krytonosecSesulovy(float* naklady, float pole, float* naftaCelkem){
 	float vyskyt = getRandInRange(0.0, 1.0);
 
 	if((vyskyt * 100) > 70.43)
@@ -128,7 +128,7 @@ void jaro::krytonosecSesulovy(float* naklady, float pole){
 
 	nafta traktor;
 
-	traktor.naftaPostrik(naklady, pole);
+	traktor.naftaPostrik(naklady, pole, naftaCelkem);
 
 	float davka = getRandInRange(0.125, 0.15);
 
@@ -136,7 +136,7 @@ void jaro::krytonosecSesulovy(float* naklady, float pole){
 }
 
 // ochrana proti msicim pokud se silne vyskytly
-void jaro::msice(float* naklady, float pole){
+void jaro::msice(float* naklady, float pole, float* naftaCelkem){
 	float vyskyt = getRandInRange(0.0, 1.0);
 
 	if((vyskyt * 100) > 12.4)
@@ -144,14 +144,14 @@ void jaro::msice(float* naklady, float pole){
 
 	nafta traktor;
 
-	traktor.naftaPostrik(naklady, pole);
+	traktor.naftaPostrik(naklady, pole, naftaCelkem);
 
 	//float cena = getRandInRange(38, 47);
 
-	*naklady = *naklady + (pole * 4800.0 * 1.0);
+	*naklady = *naklady + (pole * 4800.0 * 0.3);
 }
 
-void jaro::sklizen(float* naklady, float pole){
+void jaro::sklizen(float* naklady, float pole, float* naftaCelkem){
 	nafta kombajn;
-	kombajn.naftaSklizen(naklady, pole);
+	kombajn.naftaSklizen(naklady, pole, naftaCelkem);
 }

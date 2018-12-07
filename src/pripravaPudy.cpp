@@ -8,11 +8,11 @@
 #include "nafta.hpp"
 #include "rand.h"
 
-void pripravaPudy::aplikaceHnojiv(float* naklady, float pole){
+void pripravaPudy::aplikaceHnojiv(float* naklady, float pole, float* naftaCelkem){
 	nafta traktor;
 
 	// nafta za aplikaci siranu draselneho
-	traktor.naftaHnojeni(naklady, pole, 320);
+	traktor.naftaHnojeni(naklady, pole, 320, naftaCelkem);
 
 	// cena za hnojivo za siran draselny 18 271 - 22 886 Kc/t
 	float cenaSiran = getRandInRange(18.271, 22.886);
@@ -27,35 +27,35 @@ void pripravaPudy::aplikaceHnojiv(float* naklady, float pole){
 }
 
 
-void pripravaPudy::klasickaPriprava(float* naklady, float pole){
+void pripravaPudy::klasickaPriprava(float* naklady, float pole, float* naftaCelkem){
 	nafta traktor;
 	// nafta za pripravu radlicnym podmitacem
-	traktor.naftaRadlicny(naklady,pole);
+	traktor.naftaRadlicny(naklady,pole, naftaCelkem);
 
 	// nafta za orbu
-	traktor.naftaOrba(naklady, pole);
+	traktor.naftaOrba(naklady, pole, naftaCelkem);
 
 }
 
-void pripravaPudy::minimalizacniPriprava(float* naklady, float pole){
+void pripravaPudy::minimalizacniPriprava(float* naklady, float pole, float* naftaCelkem){
 	nafta traktor;
 	// nafta za pripravu talirovymi podmitaci
-	traktor.naftaTalirovy(naklady, pole);
+	traktor.naftaTalirovy(naklady, pole, naftaCelkem);
 }
 
-void pripravaPudy::seti(float* naklady, float pole){
+void pripravaPudy::seti(float* naklady, float pole, float* naftaCelkem){
 	nafta traktor;
 	// nafta za seti
-	traktor.naftaSeti(naklady, pole);
+	traktor.naftaSeti(naklady, pole, naftaCelkem);
 
-	// cena za osivo, 2420 - 2873 Kc/VJ, VJ = vysevni jednotka -> pocet semen vhodnych na vysazeni jednoho hektaru
-	float cenaOsivo = getRandInRange(2420.0, 2873.0);
+	// cena za osivo, 2420 - 2800 Kc/VJ, VJ = vysevni jednotka -> pocet semen vhodnych na vysazeni jednoho hektaru
+	float cenaOsivo = getRandInRange(2400.0, 2873.0);
 
 	*naklady = *naklady + (cenaOsivo * pole);
 
 }
 
-void pripravaPudy::uklid(float* naklady, float pole){
+void pripravaPudy::uklid(float* naklady, float pole, float* naftaCelkem){
 	nafta traktor;
-	traktor.naftaSlama(naklady, pole);
+	traktor.naftaSlama(naklady, pole, naftaCelkem);
 }
