@@ -21,6 +21,7 @@ int main(int argc, char** argv){
 	float herbicidyCelkem = 0.0;
 	float pripravaCelkem = 0.0;
 	float naftaCelkem = 0.0;
+	float tech = 0.0;
 	
 
 	pripravaPudy priprava;
@@ -32,6 +33,7 @@ int main(int argc, char** argv){
 	priprava.uklid(&naklady, pole, &naftaCelkem);
 	std::cout << "##\tUklid slamy\t\t\t\tcelkove naklady" <<std::endl;
 	std::cout << "##\t"<<(naklady -tmp)<< " Kc\t\t\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;
+	tech = naklady;
 
 	tmp = naklady;
 	tmpNafta = naftaCelkem;
@@ -42,20 +44,25 @@ int main(int argc, char** argv){
 
 	tmp = naklady;
 	tmpNafta = naftaCelkem;
+
 	// vyber technologie, 1 - klasicka, 2 - minimalizacni, 3 - bezorebna
 	if(technologie == 1){
 		priprava.klasickaPriprava(&naklady, pole, &naftaCelkem);
 		std::cout << "##\tKlasicke pripraveni pudy"<<std::endl;
 		std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;
+		tech = tech + (naklady - tmp);
+
 	}
 	else if(technologie == 2){
 		priprava.minimalizacniPriprava(&naklady, pole, &naftaCelkem);
 		std::cout << "##\tMinimalizacni pripraveni pudy"<<std::endl;
 		std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;
+		tech = tech + (naklady - tmp);
 	}
 	else{
 		std::cout << "##\tBezorebne pripraveni pudy"<<std::endl;
 		std::cout << "##\t"<<(naklady -tmp) << " Kc\t\t\t\t"<< naklady<< " Kc"<<std::endl<<"##"<<std::endl;
+		tech = tech + (naklady - tmp);
 	}
 
 	tmp = naklady;
@@ -202,7 +209,8 @@ int main(int argc, char** argv){
 	std::cout << "##\tHerbicidy\t\t"<< herbicidyCelkem << " Kc"<<std::endl;
 	std::cout << "##\tNafta\t\t\t"<< naftaCelkem << " Kc"<<std::endl;
 	std::cout << "##\t________________________________________"<<std::endl;
-	std::cout << "##\tCena celken\t\t"<< naklady << " Kc"<<std::endl;
+	std::cout << "##\tCena celkem\t\t"<< naklady << " Kc"<<std::endl;
+	std::cout << "##\tTechnologie\t\t"<< tech << " Kc"<<std::endl;
 	std::cout<<"##\n################################################"<<std::endl;
 
 

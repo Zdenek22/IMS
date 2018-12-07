@@ -58,8 +58,9 @@ void jaro::regulatorRustu(float* naklady, float pole, float* naftaCelkem){
 	traktor.naftaPostrik(naklady, pole, naftaCelkem);
 
 	//float cena = getRandInRange(38, 47);
+	float davka = getRandInRange(0.8, 1.2);
 
-	*naklady = *naklady + (pole * 1057.4 * 1.0);
+	*naklady = *naklady + (pole * 1057.4 * davka);
 }
 
 // ochrana proti blyskackovi, pokud se vyskytl

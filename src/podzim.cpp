@@ -76,8 +76,8 @@ void regRustu(float* naklady, float pole, float* naftaCelkem) {
 	nafta Nafta;
 	float tmp = *naklady;
 
-	float ccc = pole * 2.0 * CCC_VAL;
-	float caramba = pole * 0.5 * CARAMBA_VAL;
+	float ccc = pole * getRandInRange(1.7, 2.1) * CCC_VAL;
+	float caramba = pole * getRandInRange(0.4, 0.8) * CARAMBA_VAL;
 	*naklady += ccc + caramba;
 	//pripocteni ceny nafty
 	Nafta.naftaPostrik(naklady, pole, naftaCelkem);
