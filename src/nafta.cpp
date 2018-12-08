@@ -105,5 +105,5 @@ void nafta::naftaOrba(float* naklady, float pole, float* naftaCelkem){
 }
 
 float nafta::getCenaNafty(){
-	return 32.90;
+	return getRandInRange(28.35, 33.32);
 }
